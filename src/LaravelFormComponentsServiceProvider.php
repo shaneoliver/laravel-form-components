@@ -28,6 +28,12 @@ class LaravelFormComponentsServiceProvider extends ServiceProvider
             Radio::class => 'so-form-radio',
             Checkbox::class => 'so-form-checkbox',
         ]);
+
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../resources/sass/form.scss' => resource_path('sass/vendor/so/form.scss'),
+            ], 'assets');
+        }
     }
 
     /**
