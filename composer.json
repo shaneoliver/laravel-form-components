@@ -1,0 +1,54 @@
+{
+    "name": "shaneoliver/laravel-form-components",
+    "description": "Beautiful Laravel Form Components",
+    "keywords": [
+        "shaneoliver",
+        "laravel-form-components"
+    ],
+    "homepage": "https://github.com/shaneoliver/laravel-form-components",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Shane Oliver",
+            "email": "info@shaneoliver.com.au",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shaneoliver\\LaravelFormComponents\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Shaneoliver\\LaravelFormComponents\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Shaneoliver\\LaravelFormComponents\\LaravelFormComponentsServiceProvider"
+            ],
+            "aliases": {
+                "LaravelFormComponents": "Shaneoliver\\LaravelFormComponents\\LaravelFormComponentsFacade"
+            }
+        }
+    }
+}
