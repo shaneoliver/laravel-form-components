@@ -25,11 +25,11 @@ php artisan ui bootstrap
 There is a small amount of additional Sass you will need to style the form. Publish the Sass and import it into your app.scss file
 
 ```bash
-php artisan vendor:publish --tag=so-form
+php artisan vendor:publish
 ```
 
 ```scss
-@import './vendor/so/forms';
+@import 'vendor/so/form';
 ```
 
 ## Usage
