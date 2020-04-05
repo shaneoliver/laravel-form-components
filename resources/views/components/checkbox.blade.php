@@ -4,7 +4,7 @@
             type="checkbox"
             id="{{ $name }}" 
             name="{{ $name }}" 
-            class="custom-control-input  {{ $validationClass($errors, $name) }}" 
+            class="custom-control-input {{ Shaneoliver\LaravelFormComponents\LaravelFormComponentsFacade::validationClass($errors, $name) }}"
             {{ old($name) ? 'checked' : '' }}
         >
         <label class="custom-control-label" for="{{ $name }}">{{ $label }}</label>
@@ -13,7 +13,7 @@
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
 
-        @if($errors->any() && old($name) && ($type ?? '') != 'password')
+        @if($errors->any() && old($name))
             <div class="valid-feedback">{{ $validText ?? 'Looks good' }}</div>
         @endif
     </div>

@@ -4,7 +4,7 @@
             type="{{ $type ?? 'text' }}"
             name="{{ $name }}"
             id="{{ $name }}"
-            class="form-control {{ $validationClass($errors, $name) }}"
+            class="form-control {{ Shaneoliver\LaravelFormComponents\LaravelFormComponentsFacade::validationClass($errors, $name) }}"
             placeholder="{{ $label ?? '' }}"
             {{ $attributes }}
         >{{ old($name, $value ?? '') }}</textarea>
@@ -17,7 +17,7 @@
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
 
-        @if($errors->any() && old($name) && ($type ?? '') != 'password')
+        @if($errors->any() && old($name))
             <div class="valid-feedback">{{ $validText ?? 'Looks good' }}</div>
         @endif
     </div>

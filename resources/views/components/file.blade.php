@@ -1,24 +1,25 @@
-<div class="{{ $attributes->get('class') ?? 'col-12 mb-3' }}">
-    <div class="form-label-group">
+
+<div class="{{ $cols ?? 'col-12 mb-3' }}">
+    <div class="custom-file">
         <input
-            type="{{ $type ?? 'text' }}"
+            type="file"
             name="{{ $name }}"
             id="{{ $name }}"
-            class="form-control {{ Shaneoliver\LaravelFormComponents\LaravelFormComponentsFacade::validationClass($errors, $name, $type) }}"
+            class="custom-file-input {{ Shaneoliver\LaravelFormComponents\LaravelFormComponentsFacade::validationClass($errors, $name, $type ?? '') }}"
             placeholder="{{ $label ?? '' }}"
             value="{{ old($name, $value ?? '') }}"
             {{ $attributes }}
         >
 
-        <label for="{{ $name }}">
-            {{ $label }}
+        <label class="custom-file-label" for="{{ $name }}">
+            Choose file..
         </label>
 
         @error($name)
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
 
-        @if($errors->any() && old($name) && ($type ?? '') != 'password')
+        @if($errors->any() && old($name))
             <div class="valid-feedback">{{ $validText ?? 'Looks good' }}</div>
         @endif
     </div>

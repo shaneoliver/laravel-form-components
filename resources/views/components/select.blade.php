@@ -3,11 +3,24 @@
         <select
             name="{{ $name }}"
             id="{{ $name }}"
-            class="custom-select {{ $validationClass($errors, $name) }}"
+            class="custom-select {{ Shaneoliver\LaravelFormComponents\LaravelFormComponentsFacade::validationClass($errors, $name) }}"
             placeholder="{{ $label ?? '' }}"
             value="{{ old($name, $value ?? '') }}"
             {{ $attributes }}
-        >{{ $slot }}</select>
+        >
+        @if($options ?? false)
+            @foreach ($options as $option)
+                <option 
+                    @if(old($name) == $option['value']) {{ 'selected' }} @endif 
+                    value="{{ $option['value'] }}"
+                >
+                    {{ $option['label'] }}
+                </option>
+            @endforeach
+        @else 
+            {{ $slot }}
+        @endif
+        </select>
 
         <label for="{{ $name }}">
             {{ $label }}
@@ -17,7 +30,7 @@
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
 
-        @if($errors->any() && old($name) && ($type ?? '') != 'password')
+        @if($errors->any() && old($name))
             <div class="valid-feedback">{{ $validText ?? 'Looks good' }}</div>
         @endif
     </div>

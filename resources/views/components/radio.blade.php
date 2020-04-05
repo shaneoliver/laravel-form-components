@@ -5,7 +5,7 @@
                 type="radio" 
                 id="{{ $name }}{{ $loop->index }}" 
                 name="{{ $name }}" 
-                class="custom-control-input  {{ $validationClass($errors, $name) }}"
+                class="custom-control-input {{ Shaneoliver\LaravelFormComponents\LaravelFormComponentsFacade::validationClass($errors, $name) }}"
                 value="{{ $item['value'] }}"
             >
             <label class="custom-control-label" for="{{ $name }}{{ $loop->index }}">
@@ -16,7 +16,7 @@
                 <div class="invalid-feedback">{{ $errors->first($name) }}</div>
             @endif
 
-            @if($errors->any() && old($name) && ($type ?? '') != 'password' && $loop->last)
+            @if($errors->any() && old($name) && $loop->last)
                 <div class="valid-feedback">{{ $validText ?? 'Looks good' }}</div>
             @endif
         </div>

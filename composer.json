@@ -47,7 +47,10 @@
         "laravel": {
             "providers": [
                 "Shaneoliver\\LaravelFormComponents\\LaravelFormComponentsServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "LaravelFormComponents": "Shaneoliver\\LaravelFormComponents\\LaravelFormComponentsFacade"
+            }
         }
     }
 }

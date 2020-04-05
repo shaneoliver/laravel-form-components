@@ -4,12 +4,6 @@ namespace Shaneoliver\LaravelFormComponents;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Shaneoliver\LaravelFormComponents\Components\Checkbox;
-use Shaneoliver\LaravelFormComponents\Components\Form;
-use Shaneoliver\LaravelFormComponents\Components\Input;
-use Shaneoliver\LaravelFormComponents\Components\Radio;
-use Shaneoliver\LaravelFormComponents\Components\Select;
-use Shaneoliver\LaravelFormComponents\Components\Textarea;
 
 class LaravelFormComponentsServiceProvider extends ServiceProvider
 {
@@ -21,18 +15,19 @@ class LaravelFormComponentsServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-form-components');
 
         Blade::components([
-            Form::class => 'so-form',
-            Input::class => 'so-form-input',
-            Textarea::class => 'so-form-textarea',
-            Select::class => 'so-form-select',
-            Radio::class => 'so-form-radio',
-            Checkbox::class => 'so-form-checkbox',
+            'laravel-form-components::components.form' => 'so-form',
+            'laravel-form-components::components.input' => 'so-form-input',
+            'laravel-form-components::components.textarea' => 'so-form-textarea',
+            'laravel-form-components::components.select' => 'so-form-select',
+            'laravel-form-components::components.radio' => 'so-form-radio',
+            'laravel-form-components::components.checkbox' => 'so-form-checkbox',
+            'laravel-form-components::components.file' => 'so-form-file',
         ]);
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../resources/sass/form.scss' => resource_path('sass/vendor/so/form.scss'),
-            ], 'assets');
+            ], 'form-components');
         }
     }
 
@@ -41,6 +36,9 @@ class LaravelFormComponentsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        // Register the main class to use with the facade
+        $this->app->singleton('laravel-form-components', function () {
+            return new LaravelFormComponents;
+        });
     }
 }

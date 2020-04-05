@@ -1,10 +1,5 @@
 # Beautiful Laravel Form Components
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/shaneoliver/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/shaneoliver/laravel-form-components)
-[![Build Status](https://img.shields.io/travis/shaneoliver/laravel-form-components/master.svg?style=flat-square)](https://travis-ci.org/shaneoliver/laravel-form-components)
-[![Quality Score](https://img.shields.io/scrutinizer/g/shaneoliver/laravel-form-components.svg?style=flat-square)](https://scrutinizer-ci.com/g/shaneoliver/laravel-form-components)
-[![Total Downloads](https://img.shields.io/packagist/dt/shaneoliver/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/shaneoliver/laravel-form-components)
-
 Easily create beautiful modern forms with floating labels and validation using simple Laravel form component definitions.
 
 ## Installation
@@ -25,7 +20,7 @@ php artisan ui bootstrap
 There is a small amount of additional Sass you will need to style the form. Publish the Sass and import it into your app.scss file
 
 ```bash
-php artisan vendor:publish
+php artisan vendor:publish --tag="form-components"
 ```
 
 ```scss
@@ -34,7 +29,7 @@ php artisan vendor:publish
 
 ## Usage
 
-Create a form using the the form wrapper component. This provides basic form layout and utilises Bootstraps .form-row class to add flexbox. This will also give you a submit button at the end of the form. Alternatively, you are free to create your own <form> element.
+Create a form using the the form wrapper component. This provides basic form layout and utilises Bootstraps .form-row class to add flexbox. This will also give you a submit button at the end of the form. Alternatively, you are free to create your own form element.
 
 ``` php
 <x-so-form :action="route('test_store')">
