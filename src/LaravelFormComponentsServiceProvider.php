@@ -2,7 +2,14 @@
 
 namespace Shaneoliver\LaravelFormComponents;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Shaneoliver\LaravelFormComponents\Components\Checkbox;
+use Shaneoliver\LaravelFormComponents\Components\Form;
+use Shaneoliver\LaravelFormComponents\Components\Input;
+use Shaneoliver\LaravelFormComponents\Components\Radio;
+use Shaneoliver\LaravelFormComponents\Components\Select;
+use Shaneoliver\LaravelFormComponents\Components\Textarea;
 
 class LaravelFormComponentsServiceProvider extends ServiceProvider
 {
@@ -11,37 +18,16 @@ class LaravelFormComponentsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-form-components');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-form-components');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-form-components');
 
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laravel-form-components.php'),
-            ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-form-components'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/laravel-form-components'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-form-components'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
-        }
+        Blade::components([
+            Form::class => 'so-form',
+            Input::class => 'so-form-input',
+            Textarea::class => 'so-form-textarea',
+            Select::class => 'so-form-select',
+            Radio::class => 'so-form-radio',
+            Checkbox::class => 'so-form-checkbox',
+        ]);
     }
 
     /**
@@ -49,12 +35,6 @@ class LaravelFormComponentsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-form-components');
 
-        // Register the main class to use with the facade
-        $this->app->singleton('laravel-form-components', function () {
-            return new LaravelFormComponents;
-        });
     }
 }
