@@ -1,4 +1,4 @@
-<form class="laravel-form-components" method="{{ $method ?? 'POST' }}" action="{{ $action ?? '' }}">
+<form class="laravel-form-components" method="{{ $method ?? 'POST' }}" action="{{ $action ?? '' }}" {{ $attributes }}>
     @csrf
     <div class="form-row">
         {{ $slot }}
