@@ -7,7 +7,7 @@
 
 Easily create beautiful modern forms with floating labels and validation using simple Laravel form component definitions.
 
-![alt text](https://github.com/shaneoliver/laravel-form-components/assets/img/form-validated.png "Validated form")
+![alt text](https://github.com/shaneoliver/laravel-form-components/blob/master/assets/img/form-validated.png "Validated form")
 
 ## Installation
 
