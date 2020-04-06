@@ -63,6 +63,7 @@ Props
 - `label` acts as the placeholder for the inputs floating label
 - `type` the type on input this is. Defaults to 'text'
 - `class` the wrapper element classes. Should be used for adding columns and margin where required. Default `col-12 mb-3`
+- `valid-text` the text to show when the input was successfully validated. Defaults to 'Looks good'
 
 Any additional HTML input attributes will automatically be applied to the input eg `autofocus`, `required`, `min`, `max`
 
