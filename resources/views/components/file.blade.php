@@ -5,7 +5,7 @@
             type="file"
             name="{{ $name }}"
             id="{{ $name }}"
-            class="custom-file-input {{ Shaneoliver\LaravelFormComponents\LaravelFormComponentsFacade::validationClass($errors, $name, $type ?? '') }}"
+            class="custom-file-input {{ Shaneoliver\LaravelFormComponents\LaravelFormComponentsFacade::validationClass($errors, $name) }}"
             placeholder="{{ $label ?? '' }}"
             value="{{ old($name, $value ?? '') }}"
             {{ $attributes }}

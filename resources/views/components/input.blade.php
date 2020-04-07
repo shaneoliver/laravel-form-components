@@ -4,7 +4,7 @@
             type="{{ $type ?? 'text' }}"
             name="{{ $name }}"
             id="{{ $name }}"
-            class="form-control {{ Shaneoliver\LaravelFormComponents\LaravelFormComponentsFacade::validationClass($errors, $name, $type) }}"
+            class="form-control {{ Shaneoliver\LaravelFormComponents\LaravelFormComponentsFacade::validationClass($errors, $name, $type ?? 'text') }}"
             placeholder="{{ $label ?? '' }}"
             value="{{ old($name, $value ?? '') }}"
             {{ $attributes }}
